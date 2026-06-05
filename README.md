@@ -1,6 +1,9 @@
-# Serenity Alpha Skill
+# Serenity Skills
 
-A Codex skill that translates market news into testable alpha hypotheses using a "news -> demand -> financial statements -> small-cap elasticity -> validation path" framework.
+Codex skills for translating market information into testable investment research frameworks.
+
+- `serenity-alpha`: translates market news into alpha hypotheses using a "news -> demand -> financial statements -> small-cap elasticity -> validation path" framework.
+- `bayesian-intrinsic-growth-valuation`: estimates a company's intrinsic 3-5 year growth rate with Bayesian hypothesis updates, then compares it with market-implied growth and FOMO.
 
 ## 直接使用托管版
 
@@ -10,14 +13,15 @@ A Codex skill that translates market news into testable alpha hypotheses using a
 
 ## Install
 
-Copy or symlink the skill directory into your Codex skills folder:
+Copy or symlink the skill directories into your Codex skills folder:
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 cp -R serenity-alpha "${CODEX_HOME:-$HOME/.codex}/skills/"
+cp -R skills/* "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
-Then invoke it with `$serenity-alpha`, or share market news and ask for Serenity-style alpha analysis.
+Then invoke `$serenity-alpha` for news-to-alpha analysis, or `$bayesian-intrinsic-growth-valuation` for Bayesian intrinsic-growth valuation.
 
 ## What It Does
 

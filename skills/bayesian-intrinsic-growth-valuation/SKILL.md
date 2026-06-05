@@ -22,6 +22,7 @@ Use whatever the user provides, and clearly mark missing variables that require 
 - revenue and growth: historical growth, guidance, backlog, book-to-bill, organic growth, ASP, shipment volume
 - TAM and TAM growth: current TAM, future TAM CAGR, penetration, market share, new market expansion
 - valuation: EV/Sales, EV/EBITDA, P/E, FCF yield, PEG, historical percentile, peer percentile, implied growth
+- share-price trend: 1M/3M/6M/12M and post-earnings returns, drawdown/rebound path, volatility, volume, relative performance versus sector/index, and whether price appreciation is ahead of intrinsic growth
 - market FOMO: share-price move, options activity, social heat, analyst revisions, theme crowding, narrative strength
 - new information: orders, customers, products, pricing, policy, competition, capacity, earnings, management guidance
 
@@ -104,7 +105,28 @@ Classify valuation state:
 | implied growth > intrinsic growth, but cycle still accelerating | expensive but tradable |
 | implied growth far above intrinsic growth and FOMO is extreme | bubble-like |
 
-### 7. Build A Verification Path
+### 7. Measure Price-Growth Divergence
+
+Separately judge whether the share-price trend has moved faster or slower than the intrinsic-growth update.
+
+Use current data where possible:
+
+- compare recent share-price return, market-cap expansion, and multiple expansion with changes in revenue CAGR, guidance, backlog, margins, and posterior probabilities
+- separate rerating driven by fundamentals from rerating driven by liquidity, theme crowding, short squeeze, index flows, or FOMO
+- classify the divergence as `price lagging fundamentals`, `price aligned with fundamentals`, `price ahead of fundamentals`, or `severe price-growth divergence`
+- when price is ahead of intrinsic growth, reduce confidence in long-term margin of safety even if the company remains high quality
+- when price lags intrinsic growth, identify the catalyst needed for the market to close the gap
+
+Suggested qualitative thresholds:
+
+| Price move versus intrinsic-growth update | Divergence signal |
+| --- | --- |
+| price return materially below improved posterior growth / implied growth still below intrinsic growth | price lagging fundamentals |
+| price return and multiple expansion roughly match posterior growth improvement | aligned |
+| price return or multiple expansion exceeds posterior growth improvement | price ahead of fundamentals |
+| rapid price rise, multiple rerating, and little/no posterior intrinsic-growth improvement | severe divergence / FOMO risk |
+
+### 8. Build A Verification Path
 
 Define the time window and concrete indicators that will validate or falsify the model:
 
@@ -141,29 +163,33 @@ Use this format for company analysis:
 ## 4. 市场隐含增长速度
 反推当前市值/估值倍数隐含的增长率；若数据不足，列出需要补齐的数据。
 
-## 5. 新信息的贝叶斯更新
+## 5. 股价走势与内在增速背离
+比较 1M/3M/6M/12M 股价、相对行业/指数表现、市值和估值倍数变化，与收入增速、指引、订单、利润率和 posterior 增长概率变化是否匹配。
+给出结论：股价落后基本面 / 股价基本匹配基本面 / 股价领先基本面 / 严重背离且 FOMO 风险上升。
+
+## 6. 新信息的贝叶斯更新
 说明信息影响的变量、在各增长假设下的相容性，以及 posterior 变化。
 
-## 6. 估值状态
+## 7. 估值状态
 在 低估 / 合理 / 高估但可交易 / 泡沫化 中选择一个，并解释为什么。
 
-## 7. 上行空间
+## 8. 上行空间
 说明需要哪些收入、利润率、TAM、市占率或倍数条件才有上行。
 
-## 8. 下行风险
+## 9. 下行风险
 列出增长、利润率、竞争、周期、估值、FOMO 和流动性风险。
 
-## 9. 验证周期
+## 10. 验证周期
 说明应在几个季度内验证，以及每个阶段看什么。
 
-## 10. 关键跟踪指标
-列出最重要的财报、订单、价格、产能、客户和情绪指标。
+## 11. 关键跟踪指标
+列出最重要的财报、订单、价格、产能、客户、股价相对表现、成交量、波动率、估值分位和情绪指标。
 
-## 11. 仓位建议
+## 12. 仓位建议
 用观察 / 小仓试错 / 验证后加仓 / 只交易不投资 / 降级或退出 等条件化表述，避免个性化投资指令。
 
-## 12. 一句话结论
-用一句话总结内在增长与市场定价之间的差异。
+## 13. 一句话结论
+用一句话总结内在增长、市场隐含增长与股价走势之间的差异。
 ```
 
 ## Style Rules
@@ -172,6 +198,7 @@ Use this format for company analysis:
 - Translate demand into revenue, profit, TAM, and valuation impact.
 - Look for underpriced shovels, bottlenecks, second-position winners, hard manufacturing, and critical supply-chain nodes.
 - Separate intrinsic growth updates from FOMO and multiple expansion.
+- Explicitly measure whether share-price movement is leading, matching, or lagging the intrinsic-growth update.
 - Distinguish structural growth from cyclical rebound or one-time order timing.
 - State uncertainty, missing data, and falsification conditions clearly.
 

@@ -6,6 +6,8 @@ Codex skills for translating market information into testable investment researc
 
 - `serenity-alpha`: translates market news into alpha hypotheses using a `news -> demand -> financial statements -> small-cap elasticity -> validation path` framework.
 - `bayesian-intrinsic-growth-valuation`: estimates a company's intrinsic 3-5 year growth rate with Bayesian hypothesis updates, then compares it with market-implied growth and FOMO.
+- `gf-dma-health-index`: scores whether a stock's current valuation/trend health is supported by fundamental growth speed, DMA trend speed, divergence, escape ratio, and estimate revisions.
+- `tam-adj-peg`: evaluates growth-stock valuation by adjusting traditional PEG with TAM runway and business quality.
 
 ## 直接使用托管版
 
@@ -21,7 +23,15 @@ skills/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
 │   └── references/original-framework.md
-└── bayesian-intrinsic-growth-valuation/
+├── bayesian-intrinsic-growth-valuation/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   └── references/original-framework.md
+├── gf-dma-health-index/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   └── references/original-framework.md
+└── tam-adj-peg/
     ├── SKILL.md
     ├── agents/openai.yaml
     └── references/original-framework.md
@@ -44,9 +54,11 @@ Or install only one skill:
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 cp -R skills/serenity-alpha "${CODEX_HOME:-$HOME/.codex}/skills/"
 cp -R skills/bayesian-intrinsic-growth-valuation "${CODEX_HOME:-$HOME/.codex}/skills/"
+cp -R skills/gf-dma-health-index "${CODEX_HOME:-$HOME/.codex}/skills/"
+cp -R skills/tam-adj-peg "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
-Then invoke `$serenity-alpha` for news-to-alpha analysis, or `$bayesian-intrinsic-growth-valuation` for Bayesian intrinsic-growth valuation. If a newly copied skill does not appear, restart Codex.
+Then invoke `$serenity-alpha` for news-to-alpha analysis, `$bayesian-intrinsic-growth-valuation` for Bayesian intrinsic-growth valuation, `$gf-dma-health-index` for trend/valuation health scoring, or `$tam-adj-peg` for TAM-adjusted PEG valuation. If a newly copied skill does not appear, restart Codex.
 
 ## What They Do
 
@@ -65,6 +77,18 @@ Then invoke `$serenity-alpha` for news-to-alpha analysis, or `$bayesian-intrinsi
 - Separates intrinsic growth updates from FOMO, narrative heat, and valuation multiple expansion.
 - Compares weighted intrinsic growth with market-implied growth.
 - Classifies valuation as undervalued, fair, expensive but tradable, or bubble-like.
+
+`gf-dma-health-index`:
+
+- Combines revenue growth, profit growth, estimate revisions, and 20/50/100/200DMA structure.
+- Scores fundamental-DMA match, price-DMA divergence, trend parallelism, and revision confirmation.
+- Classifies the current state from healthy momentum to broken/escaping.
+
+`tam-adj-peg`:
+
+- Adjusts traditional PEG with TAM Runway Factor and Quality Factor.
+- Separates growth speed from growth duration, TAM capture, pricing power, cyclicality, dilution, and execution risk.
+- Classifies valuation from very cheap to very expensive and maps it to core, high-beta, turnaround, option-like, or cyclical position framing.
 
 ## License
 

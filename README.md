@@ -8,6 +8,7 @@ Codex skills for translating market information into testable investment researc
 - `bayesian-intrinsic-growth-valuation`: estimates a company's intrinsic 3-5 year growth rate with Bayesian hypothesis updates, then compares it with market-implied growth and FOMO.
 - `gf-dma-health-index`: scores whether a stock's current valuation/trend health is supported by fundamental growth speed, DMA trend speed, divergence, escape ratio, and estimate revisions.
 - `tam-adj-peg`: evaluates growth-stock valuation by adjusting traditional PEG with TAM runway and business quality.
+- `buy-side-equity-research-memo`: generates source-backed buy-side equity research memos from a ticker, with investment view, SEC/IR-backed financial analysis, valuation scenarios, catalysts, risks, and Serenity framework cross-checks.
 
 ## 直接使用托管版
 
@@ -31,7 +32,11 @@ skills/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
 │   └── references/original-framework.md
-└── tam-adj-peg/
+├── tam-adj-peg/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   └── references/original-framework.md
+└── buy-side-equity-research-memo/
     ├── SKILL.md
     ├── agents/openai.yaml
     └── references/original-framework.md
@@ -56,9 +61,10 @@ cp -R skills/serenity-alpha "${CODEX_HOME:-$HOME/.codex}/skills/"
 cp -R skills/bayesian-intrinsic-growth-valuation "${CODEX_HOME:-$HOME/.codex}/skills/"
 cp -R skills/gf-dma-health-index "${CODEX_HOME:-$HOME/.codex}/skills/"
 cp -R skills/tam-adj-peg "${CODEX_HOME:-$HOME/.codex}/skills/"
+cp -R skills/buy-side-equity-research-memo "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
-Then invoke `$serenity-alpha` for news-to-alpha analysis, `$bayesian-intrinsic-growth-valuation` for Bayesian intrinsic-growth valuation, `$gf-dma-health-index` for trend/valuation health scoring, or `$tam-adj-peg` for TAM-adjusted PEG valuation. If a newly copied skill does not appear, restart Codex.
+Then invoke `$serenity-alpha` for news-to-alpha analysis, `$bayesian-intrinsic-growth-valuation` for Bayesian intrinsic-growth valuation, `$gf-dma-health-index` for trend/valuation health scoring, `$tam-adj-peg` for TAM-adjusted PEG valuation, or `$buy-side-equity-research-memo` for a full buy-side stock memo. If a newly copied skill does not appear, restart Codex.
 
 ## What They Do
 
@@ -89,6 +95,14 @@ Then invoke `$serenity-alpha` for news-to-alpha analysis, `$bayesian-intrinsic-g
 - Adjusts traditional PEG with TAM Runway Factor and Quality Factor.
 - Separates growth speed from growth duration, TAM capture, pricing power, cyclicality, dilution, and execution risk.
 - Classifies valuation from very cheap to very expensive and maps it to core, high-beta, turnaround, option-like, or cyclical position framing.
+
+`buy-side-equity-research-memo`:
+
+- Starts with rating bias, target-price range, upside/downside, key debate, and thesis breakpoint.
+- Uses SEC filings, company IR, earnings calls, presentations, and other current sources to anchor key facts.
+- Builds industry-chain, competitive-position, financial-statement, value-driver, SOTP/valuation, and Bull/Base/Bear scenario sections.
+- Integrates Serenity Alpha, Bayesian Intrinsic Growth, TAM-Adj-PEG, and GF-DMA lenses only when they improve the investment decision.
+- Lists catalysts, risks, variant perception, monitoring dashboard, and source list for follow-up research.
 
 ## License
 

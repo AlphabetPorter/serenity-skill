@@ -13,7 +13,18 @@ Codex skills for translating market information into testable investment researc
 ## 直接使用托管版
 
 如果你觉得本地安装、配置 Codex skill 或维护环境不方便，也可以订阅 [@iamai_omni](https://x.com/iamai_omni/creator-subscriptions/subscribe)，然后访问 [app.k2ai.dev](https://app.k2ai.dev) 直接使用托管版。订阅版不需要你自己搭建，并且会附赠许多其他功能，适合想快速上手、持续使用 Serenity 体系的用户。也可以扫码直接打开订阅页：
+ 是一套面向投资研究的 Codex 技能集合，把市场信息转化为可验证的投研框架。
 
+它包含 serenity-alpha、bayesian-intrinsic-growth-valuation、gf-dma-health-index、tam-adj-peg 和 buy-side-equity-research-memo 五项独立技能，分别覆盖新闻到 alpha 假设的转化、贝叶斯内在增长估值、估值与趋势健康度打分、TAM 调整 PEG 估值，以及完整买方研究备忘录生成。
+
+主要功能：
+- serenity-alpha：将市场新闻映射为需求变化，再延伸至财务报表和小盘股弹性，形成可验证的 alpha 假设；
+- bayesian-intrinsic-growth-valuation：用贝叶斯方法更新公司 3-5 年内在增长率，并与市场隐含增长及 FOMO 进行对比；
+- gf-dma-health-index：综合基本面增速、DMA 趋势、背离、逃逸比率与预期修正，对个股健康度进行评分；
+- tam-adj-peg：结合 TAM 跑道与业务质量，调整传统 PEG 估值，区分成长速度与持续性；
+- buy-side-equity-research-memo：从 ticker 生成带投资观点、财务分析、估值情景、催化剂与风险的买方研究备忘录。
+
+支持直接复制 skills 文件夹到 Codex 目录，或通过托管服务 app.k2ai.dev 快速使用，适合需要系统化投研框架的投资者与研究者。
 <img src="docs/assets/iamai-omni-subscribe-qr.png" alt="Subscribe to @iamai_omni QR code" width="220">
 
 ## Repository Layout
